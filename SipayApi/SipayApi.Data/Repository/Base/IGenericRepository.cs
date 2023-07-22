@@ -37,5 +37,5 @@ public interface IGenericRepository<Entity> where Entity : class
     IQueryable<Entity> GetAllAsQueryable();
 
     // Belirli bir Lambda ifadesi ile veritabanındaki varlık örneklerini filtrelemek için kullanılacak metot.
-    List<Entity> Where(Expression<Func<Entity, bool>> filter);
+    IEnumerable<Entity> Where(Expression<Func<Entity, bool>> filter);
 }

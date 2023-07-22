@@ -67,8 +67,14 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
 
     // Bu metot, belirli bir Lambda ifadesi ile veritabanındaki varlık örneklerini filtrelemek için kullanılır. Filtreleme işlemi,
     // Expression<Func<Entity, bool>> tipindeki bir parametre ile sağlanır.
-    public List<Entity> Where(Expression<Func<Entity, bool>> filter)
+
+    public IEnumerable<Entity> Where(Expression<Func<Entity, bool>> expression)
     {
-        return dbContext.Set<Entity>().Where(filter).ToList();
+        return dbContext.Set<Entity>().Where(expression).AsQueryable();
     }
+
+    //public List<Entity> Where(Expression<Func<Entity, bool>> filter)
+    //{
+    //    return dbContext.Set<Entity>().Where(filter).ToList();
+    //}
 }

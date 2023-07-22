@@ -33,7 +33,7 @@ namespace SipayApi.Service
 
         // Yeni API - GetByParameter
         [HttpGet("GetByParameter")]
-        public ApiResponse<List<TransactionResponse>> GetByParameter(int? accountNumber, decimal? minAmountCredit,
+        public ApiResponse<List<TransactionResponse>> GetByParameter([FromQuery]int? accountNumber, decimal? minAmountCredit,
             decimal? maxAmountCredit, decimal? minAmountDebit, decimal? maxAmountDebit, string description,
             DateTime? beginDate, DateTime? endDate, string referenceNumber)
         {
